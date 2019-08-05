@@ -24,4 +24,4 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-//Route::get('login','');
+Route::get('login',[ 'as' => 'login', 'uses' => 'LoginController@login']);
