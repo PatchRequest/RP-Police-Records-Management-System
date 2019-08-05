@@ -11,10 +11,22 @@ class LoginController extends Controller
     }
 
     public function check(){
+        $maybe_user = User::where('username',request('username'))->get()->first();
 
+
+        if (Hash::check(request('password'), $maybe_user->password)) {
+
+            Auth::login($maybe_user);
+            return redirect('/');
+
+        }
+
+        session()->flash('message','Es ist ein Problem beim einloggen aufgetretten');
+        return redirect('/login');
     }
 
     public function logout(){
-
+        Auth::logout();
+        return redirect( '/');
     }
 }

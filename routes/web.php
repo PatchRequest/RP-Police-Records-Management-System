@@ -14,14 +14,14 @@
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', function () {
-        // Uses first & second Middleware
+        return 'test';
     });
 
-    Route::get('user/profile', function () {
-        // Uses first & second Middleware
-    });
+
 });
 
 
 
 Route::get('login',[ 'as' => 'login', 'uses' => 'LoginController@login']);
+Route::post('login','LoginController@check');
+Route::get('logout','LoginController@logout');
