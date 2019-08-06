@@ -17,13 +17,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-
             $table->string('username');
             $table->string('password');
 
-            $table->bigInteger('author_id')->unsigned();
+            $table->bigInteger('creator_id')->unsigned();
 
-            $table->foreign('author_id')->references('id')->on('users');
+            $table->foreign('creator_id')->references('id')->on('users');
 
             $table->integer('UID');
             $table->integer('forum_id');
@@ -31,14 +30,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('rank_id')->unsigned();
             $table->foreign('rank_id')->references('id')->on('ranks');
 
-            /*
 
-                        $table->integer('time_sHQ');
-                        $table->integer('time_hHQ');
-                        $table->integer('time_mHQ');
-
-                        $table->integer('time-DZ');
-            */
             $table->softDeletes();
             $table->timestamps();
         });

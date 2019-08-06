@@ -15,8 +15,11 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('headline');
-            $table->string('link');
+            $table->string('name');
+            $table->string('url');
+
+            $table->bigInteger('creator_id');
+            $table->foreign('creator_id')->references('id')->on('users');
 
 
             $table->timestamps();

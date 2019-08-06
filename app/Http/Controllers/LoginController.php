@@ -14,12 +14,11 @@ class LoginController extends Controller
     }
 
     public function check(){
-        $maybe_user = User::where('username',request('username'))->get()->first();
+        $possibleUser = User::where('username',request('username'))->get()->first();
 
+        if (Hash::check(request('password'), $possibleUser->password)) {
 
-        if (Hash::check(request('password'), $maybe_user->password)) {
-
-            Auth::login($maybe_user);
+            Auth::login($possibleUser);
             return redirect('/');
 
         }
