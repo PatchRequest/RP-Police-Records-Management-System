@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Rank;
 use App\Rating;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class RatingController extends Controller
 {
@@ -59,7 +56,6 @@ class RatingController extends Controller
                     break;
             }
 
-
             $data = [
                 'receiver_id' => request('receiver'),
                 'giver_id' => auth()->user()->id,
@@ -83,10 +79,8 @@ class RatingController extends Controller
         ]);
     }
 
-
     public function forMe(){
-        $openRatings = Rating::where('giver_id',auth()->user()->id)->where('confirmed','0')->get();
-
+        $openRatings = Rating::where('receiver_id',auth()->user()->id)->where('confirmed','0')->get();
 
         return view('rating.forMe',[
             'openRatings' => $openRatings
@@ -102,9 +96,6 @@ class RatingController extends Controller
     {
 
         $points_alg = 0;
-
-
-
 
         switch (request('points_alg')) {
             case 'negativ':
@@ -126,21 +117,15 @@ class RatingController extends Controller
         return redirect('/');
     }
 
-
     public function destroy(Rating $rating)
     {
         $rating->delete();
         return redirect('/rating');
     }
 
-
     public function ask(){
 
-
         $user = User::orderBy('role_id')->get();
-
-
-
 
         return view('rating.ask',[
             'users' => $user
