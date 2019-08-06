@@ -32,5 +32,8 @@ class RankSeeder extends Seeder
         DB::table('ranks')->insert([
             'name' => 'Hauptkommisar'
         ]);
+        DB::table('ranks')->insert([
+            'name' => 'Polizeidirektor'
+        ]);
     }
 }
