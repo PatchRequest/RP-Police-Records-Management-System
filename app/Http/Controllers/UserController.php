@@ -76,6 +76,10 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        if ($user->id == auth()->user()->id){
+            session()->flash('message','Lass das! Sonst werde ich sauer! (╯°□°）╯︵ ┻━┻ ');
+            return back();
+        }
         $user->delete();
 
         return redirect('/');

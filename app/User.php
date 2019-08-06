@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
 
     public function creator(){
-        return $this->belongsTo(User::class,'creator_id');
+        return $this->belongsTo(User::class,'creator_id')->withTrashed();
     }
 
     public function getPoints(){

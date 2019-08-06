@@ -13,7 +13,7 @@ class Rank extends Model
     ];
 
     public function owner(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTrashed();
     }
 
 }

@@ -11,6 +11,7 @@
 
     <div>
         <h3> Points: {{ $points }}</h3>
+        <h4> Eingestellt von: {{ $user->creator->username }}</h4>
     </div>
 
 

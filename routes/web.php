@@ -19,9 +19,9 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
-    Route::get('/rating/ask','RatingController@ask')->middleware('auth');
-    Route::get('/rating/forMe','RatingController@forMe')->middleware('auth');
-    Route::resource('/rating','RatingController')->middleware('auth');
+    Route::get('/rating/ask','RatingController@ask');
+    Route::get('/rating/forMe','RatingController@forMe');
+    Route::resource('/rating','RatingController');
 
 
     Route::resource('user','UserController');

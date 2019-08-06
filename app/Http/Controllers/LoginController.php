@@ -16,6 +16,11 @@ class LoginController extends Controller
     public function check(){
         $possibleUser = User::where('username',request('username'))->get()->first();
 
+
+        if($possibleUser == null){
+
+        }
+
         if (Hash::check(request('password'), $possibleUser->password)) {
 
             Auth::login($possibleUser);

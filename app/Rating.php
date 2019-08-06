@@ -13,11 +13,11 @@ class Rating extends Model
 
 
     public function receiver(){
-        return $this->belongsTo(User::class,'receiver_id');
+        return $this->belongsTo(User::class,'receiver_id')->withTrashed();
     }
 
     public function giver(){
-        return $this->belongsTo(User::class,'giver_id');
+        return $this->belongsTo(User::class,'giver_id')->withTrashed();
     }
 
 }
