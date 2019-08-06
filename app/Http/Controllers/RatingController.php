@@ -13,8 +13,11 @@ class RatingController extends Controller
 
     public function index()
     {
-
-        return view('rating.overview');
+        $allRatings = Rating::paginate(50);
+        return view('rating.overview',
+            [
+                'ratings' => $allRatings
+            ]);
     }
 
 
@@ -123,9 +126,10 @@ class RatingController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Rating $rating)
     {
-        //
+        $rating->delete();
+        return redirect('/rating');
     }
 
 

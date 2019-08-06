@@ -84,4 +84,18 @@ class User extends Authenticatable
     public function creator(){
         return $this->belongsTo(User::class,'creator_id');
     }
+
+    public function getPoints(){
+
+        $Qratings= Rating::where('receiver_id',$this->id)->where('confirmed','1')->get();
+
+
+        $points = 0;
+        foreach($Qratings as $rating ){
+            $points += $rating->points_alg;
+        }
+
+        return $points;
+    }
+
 }

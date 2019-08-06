@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Rank;
+use App\Rating;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -53,8 +54,11 @@ class UserController extends Controller
     public function show(User $user)
     {
 
+
+
         return view('User.show',[
-            'user' => $user
+            'user' => $user,
+            'points' => $user->getPoints()
         ]);
     }
 

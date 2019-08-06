@@ -82,7 +82,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/user/create">User Erstellen</a>
                         <a class="dropdown-item" href="/user">Alle User</a>
-
+                        <a class="dropdown-item" href="/rating">Alle Bewertungen</a>
                     </div>
                 </li>
 

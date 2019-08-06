@@ -9,7 +9,9 @@
         </h1>
     </div>
 
-
+    <div>
+        <h3> Points: {{ $points }}</h3>
+    </div>
 
 
 
@@ -29,6 +31,10 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
+
+
+
                 <div class="modal-body">
 
                     <form method="POST" action="/user/{{$user->id}}">
@@ -38,6 +44,10 @@
                     </form>
 
                 </div>
+
+
+
+
 
             </div>
         </div>

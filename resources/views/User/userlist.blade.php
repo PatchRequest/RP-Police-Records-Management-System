@@ -9,7 +9,8 @@
         <tr>
             <th scope="col">UID</th>
             <th scope="col">Name</th>
-            <th scope="col">Rang</th>
+            <th scope="col">Rang
+            <th scope="col">Punkte</th>
         </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                 <th scope="row">{{ $user->UID }}</th>
                 <td><a href="/user/{{$user->id}}"> {{ $user->username }}</a></td>
                 <td>{{ $user->rank->name }}</td>
+                <td>{{ $user->getPoints() }}</td>
             </tr>
 
         @endforeach
