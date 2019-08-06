@@ -13,7 +13,7 @@
             <select name = "receiver" class="selectpicker" title="Kollegen auswählen!"data-show-subtext="true" data-live-search="true">
                 @foreach($users as $user)
 
-                <option data-subtext="{{ $user->rank->name }}" value="{{ $user->id }}">{{ $user->username }}</option>
+                <option data-subtext="{{ $user->role->name }}" value="{{ $user->id }}">{{ $user->username }}</option>
                 @endforeach
             </select>
 

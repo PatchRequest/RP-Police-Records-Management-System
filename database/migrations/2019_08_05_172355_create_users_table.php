@@ -27,8 +27,8 @@ class CreateUsersTable extends Migration
             $table->integer('UID');
             $table->integer('forum_id');
 
-            $table->bigInteger('rank_id')->unsigned();
-            $table->foreign('rank_id')->references('id')->on('ranks');
+            $table->Integer('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles');
 
 
             $table->softDeletes();

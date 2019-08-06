@@ -24,7 +24,7 @@ class RatingController extends Controller
 
     public function create()
     {
-        $user = User::orderBy('rank_id')->get();
+        $user = User::orderBy('role_id')->get();
 
         return view('rating.create',[
             'users' => $user
@@ -137,7 +137,7 @@ class RatingController extends Controller
     public function ask(){
 
 
-        $user = User::orderBy('rank_id')->get();
+        $user = User::orderBy('role_id')->get();
 
 
 

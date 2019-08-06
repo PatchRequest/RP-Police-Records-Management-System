@@ -5,13 +5,13 @@
     <div>
         <h1>
             {{ $user->username }}
-                <span class="badge badge-secondary">{{ $user->rank->name }}</span>
+                <span class="badge badge-secondary">{{ $user->role->name }}</span>
         </h1>
     </div>
 
     <div>
         <h3> Points: {{ $points }}</h3>
-        <h4> Eingestellt von: {{ $user->creator->username }}</h4>
+        <h4>Eingestellt von: <a href="/user/{{ $user->creator->id }}">{{ $user->creator->username }} </a>  </h4>
     </div>
 
 

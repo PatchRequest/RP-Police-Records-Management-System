@@ -19,7 +19,7 @@
             <tr>
                 <th scope="row">{{ $user->UID }}</th>
                 <td><a href="/user/{{$user->id}}"> {{ $user->username }}</a></td>
-                <td>{{ $user->rank->name }}</td>
+                <td>{{ $user->role->name }}</td>
                 <td>{{ $user->getPoints() }}</td>
             </tr>
 

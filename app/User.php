@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'username', 'email', 'password','creator_id','UID','forum_id','rank_id'
+        'username', 'email', 'password','creator_id','UID','forum_id','role_id'
     ];
 
 
@@ -30,8 +31,9 @@ class User extends Authenticatable
 
 
 
-    public function rank(){
-        return $this->belongsTo(Rank::class,'rank_id');
+    public function role(){
+
+        return $this->belongsTo(Role::class,'role_id');
 
     }
 

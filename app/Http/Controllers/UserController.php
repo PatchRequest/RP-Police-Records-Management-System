@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -23,9 +24,10 @@ class UserController extends Controller
 
     public function create()
     {
-        $ranks = Rank::all();
+        $roles = Role::all();
+
         return view('User.create',[
-            'ranks' => $ranks
+            'roles' => $roles
         ]);
     }
 

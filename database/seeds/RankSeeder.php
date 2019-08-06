@@ -11,28 +11,36 @@ class RankSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Anwärter'
         ]);
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Wachtmeister'
         ]);
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Oberwachtmeister'
         ]);
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Hauptwachtmeister'
         ]);
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Kommisar'
         ]);
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Oberkommisar'
         ]);
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Hauptkommisar'
         ]);
-        DB::table('ranks')->insert([
+        DB::table('roles')->insert([
+            'guard_name' => 'web',
             'name' => 'Polizeidirektor'
         ]);
     }

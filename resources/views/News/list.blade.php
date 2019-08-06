@@ -11,13 +11,14 @@
             </div>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                    {{ $news->text }}
+                    {!!$news->text  !!}
                 </blockquote>
 
 
 
+                <br>
 
-
+                <a href="/news/{{ $news->id }}">  <button class="btn btn-primary"> Bearbeiten</button></a>
 
                 <form action="/news/{{ $news->id }}" method="POST">
                     @csrf
@@ -25,13 +26,16 @@
                     <button type="submit" class="btn btn-danger"> delete</button>
                 </form>
 
-                <a href="/news/{{ $news->id }}">  <button class="btn btn-primary"> Bearbeiten</button></a>
+
 
 
             </div>
+            <div class="card-footer">
+                <small class="text-muted">Erstellt am {{ $news->created_at }}</small>
+            </div>
 
         </div>
-
+        <br>
     @endforeach
 
 @endsection

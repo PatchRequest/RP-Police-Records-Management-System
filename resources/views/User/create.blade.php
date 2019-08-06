@@ -24,8 +24,8 @@
         <div class="form-group">
             <label for="rank_id"> Rang: </label>
             <select name="rank_id" class="form-control">
-                @foreach($ranks as $rank)
-                    <option value="{{ $rank->id }}">{{ $rank->name }}</option>
+                @foreach($roles as $role)
+                    <option value="{{ $role->id }}">{{ $role->name }}</option>
                 @endforeach
             </select>
 

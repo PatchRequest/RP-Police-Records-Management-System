@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'creator_id' => 1,
             'UID' => 0,
             'forum_id' => 0,
-            'rank_id' => 8,
+            'role_id' => 8,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
