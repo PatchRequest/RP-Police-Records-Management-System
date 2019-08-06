@@ -73,6 +73,19 @@
                     </li>
                 @endcan
 
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin-Panel
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/user/create">User Erstellen</a>
+                        <a class="dropdown-item" href="/user">Alle User</a>
+
+                    </div>
+                </li>
+
             </div>
         </div>
 
