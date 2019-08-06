@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Rank;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,10 @@ class UserController extends Controller
 
     public function create()
     {
-        return view();
+        $ranks = Rank::all();
+        return view('User.create',[
+            'ranks' => $ranks
+        ]);
     }
 
 
