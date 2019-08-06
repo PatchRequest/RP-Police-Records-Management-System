@@ -61,13 +61,12 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        //
+        return redirect('/');
     }
-
 
     public function update(User $user)
     {
-        //
+        return redirect('/');
     }
 
 

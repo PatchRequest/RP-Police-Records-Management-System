@@ -11,22 +11,27 @@
 |
 */
 
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', function () {
-        return 'test';
+        return view('layout');
     });
 
 
+    Route::get('/rating/ask','RatingController@ask')->middleware('auth');
+    Route::get('/rating/forMe','RatingController@forMe')->middleware('auth');
+    Route::resource('/rating','RatingController')->middleware('auth');
+
+
+    Route::resource('user','UserController');
 
 
 
-        Route::resource('user','UserController');
 
-
-    Route::group(array('namespace' => 'document'), function(){
-
-    });
+    Route::get('/document/manage','DocumentsController@create');
+    Route::post('/document','DocumentsController@store');
+    Route::delete('/document/{document}','DocumentsController@destroy');
 
 
 });

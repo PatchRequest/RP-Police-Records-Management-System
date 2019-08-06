@@ -21,16 +21,16 @@
 
                         @foreach($documents as $document)
 
-                            <a class="dropdown-item" href="{{ $document->link }}" target="_blank">{{ $document->headline }}</a>
+                            <a class="dropdown-item" href="{{ $document->url }}" target="_blank">{{ $document->name }}</a>
 
                         @endforeach
 
 
 
-                        @can('edit documents')
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/document/manage">Verwalte Dokumente</a>
-                        @endcan
+
 
                     </div>
                 </li>

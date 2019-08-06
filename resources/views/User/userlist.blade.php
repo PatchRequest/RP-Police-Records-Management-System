@@ -17,7 +17,7 @@
         @foreach($users as $user)
             <tr>
                 <th scope="row">{{ $user->UID }}</th>
-                <td>{{ $user->username }}</td>
+                <td><a href="/user/{{$user->id}}"> {{ $user->username }}</a></td>
                 <td>{{ $user->rank->name }}</td>
             </tr>
 
