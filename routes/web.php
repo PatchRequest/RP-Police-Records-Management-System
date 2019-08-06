@@ -15,7 +15,7 @@
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', function () {
-        return view('layout');
+        return redirect('/news');
     });
 
 
@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('user','UserController');
 
 
-
+    Route::resource('news','NewsController');
 
     Route::get('/document/manage','DocumentsController@create');
     Route::post('/document','DocumentsController@store');
