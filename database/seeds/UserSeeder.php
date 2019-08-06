@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'username' => 'Admin',
             'password' => \Illuminate\Support\Facades\Hash::make('password'),
-            'author_id' => 1,
+            'creator_id' => 1,
             'UID' => 0,
             'forum_id' => 0,
             'rank_id' => 1,

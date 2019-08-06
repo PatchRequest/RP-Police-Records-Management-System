@@ -18,8 +18,7 @@ class CreateDocumentsTable extends Migration
             $table->string('name');
             $table->string('url');
 
-            $table->bigInteger('creator_id');
-            $table->foreign('creator_id')->references('id')->on('users');
+
 
 
             $table->timestamps();

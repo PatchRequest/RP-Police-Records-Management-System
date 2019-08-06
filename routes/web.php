@@ -18,6 +18,17 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
+
+
+
+        Route::resource('user','UserController');
+
+
+    Route::group(array('namespace' => 'document'), function(){
+
+    });
+
+
 });
 
 
