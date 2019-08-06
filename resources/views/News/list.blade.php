@@ -13,11 +13,20 @@
                 <blockquote class="blockquote mb-0">
                     {{ $news->text }}
                 </blockquote>
+
+
+
+
+
+
                 <form action="/news/{{ $news->id }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger"> delete</button>
                 </form>
+
+                <a href="/news/{{ $news->id }}">  <button class="btn btn-primary"> Bearbeiten</button></a>
+
 
             </div>
 

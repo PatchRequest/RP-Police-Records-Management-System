@@ -40,7 +40,9 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
-        //
+        return view('News.show',[
+            'news' => $news
+        ]);
     }
 
 
@@ -52,7 +54,16 @@ class NewsController extends Controller
 
     public function update( News $news)
     {
-        //
+        $validated = request()->validate([
+            'text' => ['min:3']
+        ]);
+
+        $news->text = $validated['text'];
+
+        $news->save();
+
+        return redirect('/news');
+
     }
 
 

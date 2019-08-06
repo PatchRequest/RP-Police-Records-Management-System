@@ -48,17 +48,18 @@
                     </div>
                 </li>
 
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ auth()->user()->username }}
+                        News
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/user/{{ auth()->user()->id }}"> Mein Profil</a>
-                        <a class="dropdown-item" href="/logout">Log Out</a>
+                        <a class="dropdown-item" href="/news/create">Erstellen</a>
 
                     </div>
                 </li>
+
 
                 @can('give punishment')
                     <li class="nav-item dropdown">
@@ -83,6 +84,18 @@
                         <a class="dropdown-item" href="/user/create">User Erstellen</a>
                         <a class="dropdown-item" href="/user">Alle User</a>
                         <a class="dropdown-item" href="/rating">Alle Bewertungen</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ auth()->user()->username }}
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/user/{{ auth()->user()->id }}"> Mein Profil</a>
+                        <a class="dropdown-item" href="/logout">Log Out</a>
+
                     </div>
                 </li>
 

@@ -15,7 +15,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
 
-        @include('sidebar')
+        @include('navbar')
     </nav>
 
     <!-- Page Content -->
