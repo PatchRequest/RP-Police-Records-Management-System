@@ -46,13 +46,14 @@ class User extends Authenticatable
 {
     use Notifiable, SoftDeletes,HasRoles;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password','author_id','UID','forum_id','rank_id'
+        'username', 'email', 'password','creator_id','UID','forum_id','rank_id'
     ];
 
     /**

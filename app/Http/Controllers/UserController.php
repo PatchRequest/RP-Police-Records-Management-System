@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Rank;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -29,13 +31,31 @@ class UserController extends Controller
 
     public function store()
     {
-        //
-    }
+        $validated = request()->validate([
+            'username' => ['required','min:3','unique:users,username'],
+            'UID' => ['required','numeric','unique:users,UID'],
+            'forum_id' => ['required','numeric'],
+            'rank_id' => ['required','numeric']
+        ]);
+        $validated['creator_id'] = auth()->user()->id;
+
+        $random = Str::random(8);
+        session()->flash('message', "Das Password des neuen Benutzers ist: ".$random);
+        $validated['password'] = Hash::make($random);
+
+
+        $newUser = User::create($validated);
+
+        return redirect('/user/'.$newUser->id);
+}
 
 
     public function show(User $user)
     {
-        return view();
+
+        return view('User.show',[
+            'user' => $user
+        ]);
     }
 
 
@@ -53,6 +73,8 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect('/');
     }
 }
