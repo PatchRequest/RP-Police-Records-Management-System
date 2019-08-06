@@ -14,6 +14,7 @@ class RatingController extends Controller
     public function index()
     {
         $allRatings = Rating::paginate(50);
+
         return view('rating.overview',
             [
                 'ratings' => $allRatings
