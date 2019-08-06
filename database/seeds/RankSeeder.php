@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RankSeeder extends Seeder
 {
@@ -11,37 +13,15 @@ class RankSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Anwärter'
-        ]);
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Wachtmeister'
-        ]);
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Oberwachtmeister'
-        ]);
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Hauptwachtmeister'
-        ]);
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Kommisar'
-        ]);
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Oberkommisar'
-        ]);
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Hauptkommisar'
-        ]);
-        DB::table('roles')->insert([
-            'guard_name' => 'web',
-            'name' => 'Polizeidirektor'
-        ]);
+        Role::create(['name' => 'Anwärter']);
+        Role::create(['name' => 'Wachtmeister']);
+        Role::create(['name' => 'Oberwachtmeister']);
+        Role::create(['name' => 'Hauptwachtmeister']);
+        Role::create(['name' => 'Kommisar']);
+        Role::create(['name' => 'Oberkommisar']);
+        Role::create(['name' => 'Hauptkommisar']);
+        $role = Role::create(['name' => 'Polizeidirektor']);
+        $role->givePermissionTo(Permission::all());
+
     }
 }

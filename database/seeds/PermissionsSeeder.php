@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
 class PermissionsSeeder extends Seeder
 {
@@ -13,16 +14,7 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
 
-        DB::table('permissions')->insert([
-            'guard_name' => 'web',
-            'name' => 'edit_rights',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-
-        ]);
-
-
-        
+        Permission::create(['name' => 'edit permissions']);
 
     }
 }
