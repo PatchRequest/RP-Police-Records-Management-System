@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/document/{document}','DocumentsController@destroy');
 
     Route::get('/permissions','PermissionsController@index');
+    Route::post('/permissions','PermissionsController@permissionChange');
 });
 
 

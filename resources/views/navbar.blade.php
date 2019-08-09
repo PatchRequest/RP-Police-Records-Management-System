@@ -84,6 +84,7 @@
                         <a class="dropdown-item" href="/user/create">User Erstellen</a>
                         <a class="dropdown-item" href="/user">Alle User</a>
                         <a class="dropdown-item" href="/rating">Alle Bewertungen</a>
+                        <a class="dropdown-item" href="/permissions">Rechte System</a>
                     </div>
                 </li>
 

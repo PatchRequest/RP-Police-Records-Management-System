@@ -19,4 +19,24 @@ class PermissionsController extends Controller
             'allPermissions' => $allPermissions
         ]);
     }
+
+    public function permissionChange(){
+        $permission = Permission::find(request('permission'));
+        $role = Role::find(request('role')) ;
+
+
+
+        if($role->hasPermissionTo($permission->name)){
+            $role->revokePermissionTo($permission->name);
+        }else {
+            $role->givePermissionTo($permission->name);
+        }
+
+        return back();
+
+
+    }
+
+
+
 }
