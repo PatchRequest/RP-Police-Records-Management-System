@@ -27,10 +27,10 @@
 
 
 
-
+                        @can("manage documents")
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/document/manage">Verwalte Dokumente</a>
-
+                        @endcan
 
                     </div>
                 </li>
@@ -49,6 +49,7 @@
                 </li>
 
 
+                @can('manage news')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         News
@@ -59,34 +60,38 @@
 
                     </div>
                 </li>
-
-
-                @can('give punishment')
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            S-Strafen
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/punishment/create">Vergeben</a>
-
-                        </div>
-                    </li>
                 @endcan
 
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin-Panel
-                    </a>
+                @if(auth()->user()->can('edit permissions') || auth()->user()->can('create users') || auth()->user()->can('show ratings') )
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin-Panel
+                        </a>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/user/create">User Erstellen</a>
-                        <a class="dropdown-item" href="/user">Alle User</a>
-                        <a class="dropdown-item" href="/rating">Alle Bewertungen</a>
-                        <a class="dropdown-item" href="/permissions">Rechte System</a>
-                    </div>
-                </li>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @can("create users")
+                            <a class="dropdown-item" href="/user/create">User Erstellen</a>
+                            @endcan
+
+                            <a class="dropdown-item" href="/user">Alle User</a>
+
+                            @can("show ratings")
+                            <a class="dropdown-item" href="/rating">Alle Bewertungen</a>
+                            @endcan
+
+                            @can("edit permissions")
+                            <a class="dropdown-item" href="/permissions">Rechte System</a>
+                            @endcan
+                        </div>
+                    </li>
+
+                @endif
+
+
+
+
+
 
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

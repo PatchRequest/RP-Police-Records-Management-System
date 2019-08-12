@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware('role_or_permission:manage news',['only' => ['create','store','show','update','destroy']]);
+
+    }
 
     public function index()
     {

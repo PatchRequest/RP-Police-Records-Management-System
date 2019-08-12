@@ -37,8 +37,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/document','DocumentsController@store');
     Route::delete('/document/{document}','DocumentsController@destroy');
 
-    Route::get('/permissions','PermissionsController@index');
-    Route::post('/permissions','PermissionsController@permissionChange');
+
+    Route::group(['middleware' => ['role_or_permission:edit permissions']], function () {
+        Route::get('/permissions','PermissionsController@index');
+        Route::post('/permissions','PermissionsController@permissionChange');
+    });
+
 });
 
 

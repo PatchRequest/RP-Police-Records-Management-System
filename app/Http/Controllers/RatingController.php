@@ -7,6 +7,13 @@ use App\User;
 
 class RatingController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware('role_or_permission:show ratings',['only' => ['index']]);
+        $this->middleware('role_or_permission:delete ratings',['only' => ['destroy']]);
+    }
+
 
     public function index()
     {

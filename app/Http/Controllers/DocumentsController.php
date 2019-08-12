@@ -6,6 +6,13 @@ use App\Document;
 
 class DocumentsController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware('role_or_permission:manage documents',['only' => ['create','store','destroy']]);
+
+    }
+
     public function create(){
         return view('documents.create');
     }
