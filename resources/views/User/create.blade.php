@@ -22,14 +22,16 @@
         </div>
 
         <div class="form-group">
-            <label for="rank_id"> Rang: </label>
-            <select name="rank_id" class="form-control">
+            <label for="role_id"> Rang: </label>
+            <select name="role_id" class="form-control">
                 @foreach($roles as $role)
                     <option value="{{ $role->id }}">{{ $role->name }}</option>
                 @endforeach
             </select>
 
         </div>
+
+
         <div class="form-group">
             <button type="submit" class="btn btn-success">Einstellen</button>
         </div>

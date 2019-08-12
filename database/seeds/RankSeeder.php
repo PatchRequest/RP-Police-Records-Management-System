@@ -13,15 +13,25 @@ class RankSeeder extends Seeder
      */
     public function run()
     {
-        Role::create(['name' => 'Anwärter']);
-        Role::create(['name' => 'Wachtmeister']);
-        Role::create(['name' => 'Oberwachtmeister']);
-        Role::create(['name' => 'Hauptwachtmeister']);
-        Role::create(['name' => 'Kommisar']);
-        Role::create(['name' => 'Oberkommisar']);
-        Role::create(['name' => 'Hauptkommisar']);
-        $role = Role::create(['name' => 'Polizeidirektor']);
+        Role::create(['name' => 'Anwärter','sort_order' => 10]);
+        Role::create(['name' => 'Wachtmeister','sort_order' => 20]);
+        Role::create(['name' => 'Oberwachtmeister','sort_order' => 30]);
+
+
+        Role::create(['name' => 'Hauptwachtmeister','sort_order' => 40]);
+
+        Role::create(['name' => 'Kommisar','sort_order' => 50]);
+
+        Role::create(['name' => 'Oberkommisar','sort_order' => 60]);
+
+        Role::create(['name' => 'Hauptkommisar','sort_order' => 70]);
+        $role = Role::create(['name' => 'Polizeidirektor','sort_order' => 80]);
         $role->givePermissionTo(Permission::all());
+
+
+        Role::create(['name' => 'Trainer','sort_order' => 0]);
+        Role::create(['name' => 'Ausbilder','sort_order' => 0]);
+        Role::create(['name' => 'Ziv-Pol Leitung','sort_order' => 0]);
 
     }
 }

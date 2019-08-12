@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::where('sort_order','>','1')->get();
 
         return view('User.create',[
             'roles' => $roles
@@ -37,9 +37,11 @@ class UserController extends Controller
         $validated = request()->validate([
             'username' => ['required','min:3','unique:users,username'],
             'UID' => ['required','numeric','unique:users,UID'],
-            'forum_id' => ['required','numeric'],
-            'rank_id' => ['required','numeric']
+            'forum_id' => ['required','numeric']
+
         ]);
+
+
         $validated['creator_id'] = auth()->user()->id;
 
         $random = Str::random(8);
@@ -48,6 +50,8 @@ class UserController extends Controller
 
 
         $newUser = User::create($validated);
+
+        $newUser->assignRole(Role::findById(request('role_id')));
 
         return redirect('/user/'.$newUser->id);
 }
@@ -85,5 +89,42 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('/');
+    }
+
+
+    public function passwordChange(){
+
+        $user = auth()->user();
+        $newpassword = "";
+
+
+        if (request()->filled('password') && request()->filled('passwordAgain')){
+            $validated = request()->validate([
+                    'password' => 'min:8',
+                    'passwordAgain' => ['min:8','same:password']
+
+                ]
+            );
+
+            $newpassword = $validated['password'];
+            session()->flash('message','Password wurde geändert');
+
+
+        }else{
+            $newpassword = Str::random(8);
+
+            session()->flash('message','Das neue Password ist: '.$newpassword);
+
+
+
+        }
+
+
+        $user->password = Hash::make($newpassword);
+
+        $user->save();
+
+        return redirect('/news');
+
     }
 }

@@ -19,8 +19,14 @@
             <tr>
                 <th scope="row">{{ $user->UID }}</th>
                 <td><a href="/user/{{$user->id}}"> {{ $user->username }}</a></td>
-                <td>{{ $user->role->name }}</td>
-                <td>{{ $user->getPoints() }}</td>
+                <td>
+                 @foreach( $user->role as $role)
+                        @if($role->sort_order > 0)
+                            <span class="label label-default"> {{ $role->name }}</span>
+                        @endif
+                    @endforeach
+                 </td>
+                    <td>{{ $user->getPoints() }}</td>
             </tr>
 
         @endforeach

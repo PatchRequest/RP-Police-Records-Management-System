@@ -21,10 +21,24 @@ class RatingController extends Controller
 
     public function create()
     {
-        $user = User::orderBy('role_id')->get();
+        $users = User::all();
 
-        return view('rating.create',[
-            'users' => $user
+        foreach ($users as $user) {
+            $user->sort_order = 0;
+            foreach($user->role as $role){
+                if($role->sort_order > $user->sort_order){
+                    $user->sort_order =$role->sort_order;
+                }
+            }
+        }
+
+        $sortedUsers = $users->sortBy('sort_order');
+
+        //$user = User::orderBy('role_id')->get();
+
+
+        return view('rating.create', [
+            'users' => $sortedUsers
         ]);
     }
 
@@ -32,7 +46,7 @@ class RatingController extends Controller
     public function store()
     {
 
-        if (request()->has('ask')){
+        if (request()->has('ask')) {
             $data = [
                 'receiver_id' => auth()->user()->id,
                 'giver_id' => request('giver'),
@@ -72,17 +86,18 @@ class RatingController extends Controller
     }
 
 
-    public function show( Rating $rating)
+    public function show(Rating $rating)
     {
-        return view('rating.show',[
+        return view('rating.show', [
             'rating' => $rating
         ]);
     }
 
-    public function forMe(){
-        $openRatings = Rating::where('receiver_id',auth()->user()->id)->where('confirmed','0')->get();
+    public function forMe()
+    {
+        $openRatings = Rating::where('receiver_id', auth()->user()->id)->where('confirmed', '0')->get();
 
-        return view('rating.forMe',[
+        return view('rating.forMe', [
             'openRatings' => $openRatings
         ]);
     }
@@ -123,12 +138,24 @@ class RatingController extends Controller
         return redirect('/rating');
     }
 
-    public function ask(){
+    public function ask()
+    {
 
-        $user = User::orderBy('role_id')->get();
+        $users = User::all();
 
-        return view('rating.ask',[
-            'users' => $user
+        foreach ($users as $user) {
+            $user->sort_order = 0;
+            foreach($user->role as $role){
+                if($role->sort_order > $user->sort_order){
+                    $user->sort_order =$role->sort_order;
+                }
+            }
+        }
+
+        $sortedUsers = $users->sortBy('sort_order');
+
+        return view('rating.ask', [
+            'users' => $sortedUsers
         ]);
     }
 }

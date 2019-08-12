@@ -27,6 +27,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('user','UserController');
 
 
+
+    Route::post('/user/password','UserController@passwordChange');
+
+
     Route::resource('news','NewsController');
 
     Route::get('/document/manage','DocumentsController@create');
