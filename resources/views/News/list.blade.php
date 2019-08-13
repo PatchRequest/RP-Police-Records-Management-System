@@ -38,4 +38,6 @@
         <br>
     @endforeach
 
+    {{ $newses->links() }}
+
 @endsection

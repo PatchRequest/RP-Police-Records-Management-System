@@ -38,6 +38,7 @@
 
 
         </tbody>
+        {{ $ratings->links() }}
     </table>
 
 

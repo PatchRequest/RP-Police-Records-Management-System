@@ -25,5 +25,7 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'manage documents']);
         Permission::create(['name' => 'reset password']);
 
+        Permission::create(['name' => 'create comments']);
+        Permission::create(['name' => 'view comments']);
     }
 }

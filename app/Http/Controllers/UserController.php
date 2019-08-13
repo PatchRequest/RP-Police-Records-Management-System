@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Rank;
 use App\Rating;
 use App\User;
@@ -70,18 +71,21 @@ class UserController extends Controller
 
         return view('User.show',[
             'user' => $user,
-            'points' => $user->getPoints()
+            'points' => $user->getPoints(),
+            'comments' => Comment::where('receiver_id',$user->id)->paginate(5)
         ]);
     }
 
 
     public function edit(User $user)
     {
+
         return redirect('/');
     }
 
     public function update(User $user)
     {
+
         return redirect('/');
     }
 

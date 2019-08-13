@@ -76,8 +76,8 @@
 
                             <a class="dropdown-item" href="/user">Alle User</a>
 
-                            @can("show ratings")
-                            <a class="dropdown-item" href="/rating">Alle Bewertungen</a>
+                             @can('show ratings')
+                                <a class="dropdown-item" href="/rating">Alle Bewertungen</a>
                             @endcan
 
                             @can("edit permissions")

@@ -19,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
+
+    Route::post('/comment','CommentController@store');
+
     Route::get('/rating/ask','RatingController@ask');
     Route::get('/rating/forMe','RatingController@forMe');
     Route::resource('/rating','RatingController');
