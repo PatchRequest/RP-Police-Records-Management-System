@@ -37,7 +37,19 @@
         <hr>
     @foreach($comments as $comment)
 
-        <div class="card">
+            @switch($comment->karma)
+                @case('negativ')
+                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                @break
+
+                @case('neutral')
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                @break
+
+                 @case('positiv')
+                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            @endswitch
+
             <div class="card-header">
                 Von {{ $comment->creator->username }}
             </div>
