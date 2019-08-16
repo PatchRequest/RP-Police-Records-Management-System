@@ -25,11 +25,10 @@ class UserSeeder extends Seeder
         ]);
 
 
-        \App\User::find(1)->assignRole('Polizeidirektor');
-        \App\User::find(1)->assignRole('Ziv-Pol Leitung');
+        \App\User::find(1)->givePermissionTo(Permission::all());
 
         DB::table('users')->insert([
-            'username' => 'Admin',
+            'username' => 'Steve',
             'password' => \Illuminate\Support\Facades\Hash::make('password'),
             'creator_id' => 1,
             'UID' => 0,

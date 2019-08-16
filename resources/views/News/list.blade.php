@@ -17,14 +17,18 @@
 
 
                 <br>
+                @can('manage news')
+                <div class="btn-group">
+                    <a href="/news/{{ $news->id }}" class="btn btn-primary">  Bearbeiten</a> 
 
-                <a href="/news/{{ $news->id }}">  <button class="btn btn-primary"> Bearbeiten</button></a>
+                    <form action="/news/{{ $news->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"> delete</button>
+                    </form>
+                </div>
+                @endcan
 
-                <form action="/news/{{ $news->id }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger"> delete</button>
-                </form>
 
 
 

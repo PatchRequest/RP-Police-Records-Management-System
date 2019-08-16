@@ -48,3 +48,8 @@
 
 
 @endsection
+
+
+@section('container')
+container-fluid
+    @endsection

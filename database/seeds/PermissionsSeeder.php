@@ -27,5 +27,7 @@ class PermissionsSeeder extends Seeder
 
         Permission::create(['name' => 'create comments']);
         Permission::create(['name' => 'view comments']);
+
+        Permission::create(['name' => 'edit ranks']);
     }
 }

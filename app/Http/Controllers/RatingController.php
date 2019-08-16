@@ -54,6 +54,13 @@ class RatingController extends Controller
     {
 
         if (request()->has('ask')) {
+
+            request()->validate([
+                'giver' => ['required'],
+                'reason' => 'required'
+            ]);
+
+
             $data = [
                 'receiver_id' => auth()->user()->id,
                 'giver_id' => request('giver'),
@@ -64,6 +71,12 @@ class RatingController extends Controller
             ];
 
         } else {
+
+            request()->validate([
+                'receiver' => ['required'],
+                'points_alg' => 'required',
+                'reason' => 'required'
+            ]);
 
             switch (request('points_alg')) {
                 case 'negativ':
@@ -82,7 +95,7 @@ class RatingController extends Controller
                 'giver_id' => auth()->user()->id,
 
                 'points_alg' => $points_alg,
-                'reason' => '',
+                'reason' => request('reason'),
                 'confirmed' => true
             ];
         }
@@ -102,7 +115,7 @@ class RatingController extends Controller
 
     public function forMe()
     {
-        $openRatings = Rating::where('receiver_id', auth()->user()->id)->where('confirmed', '0')->get();
+        $openRatings = Rating::where('giver_id', auth()->user()->id)->where('confirmed', '0')->get();
 
         return view('rating.forMe', [
             'openRatings' => $openRatings

@@ -1,12 +1,17 @@
 <!doctype html>
 <html alng="en"  >
 <head>
-    <title>@yield('title','Natus Website')</title>
+    <title>@yield('title','Z01 Zivilpolizei')</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
 </head>
-<body  background="{{asset("/images/background.jpg")}}" style="background-attachment: fixed;" >
+<body  background="{{asset("/images/background.jpg")}}" style="background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;" >
 
 
 
@@ -20,7 +25,7 @@
 
     <!-- Page Content -->
     <div id="content">
-        <div class="container"  >
+        <div class="@yield('container','container')"  >
             <div class="jumbotron mt-3">
                 @include('errors')
                 @yield('content')

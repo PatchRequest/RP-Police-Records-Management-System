@@ -12,12 +12,12 @@
         </div>
 
         <div class="form-group">
-            <label for="password"> Username:</label>
-            <input name="password" placeholder="password" class="form-control" type="password" required>
+            <label for="password"> Passwort:</label>
+            <input  type="password" name="password" placeholder="Passwort" class="form-control" type="password" required>
         </div>
 
         <div class="form-group">
-            <button type="submit"> login</button>
+            <button type="submit" class="btn btn-success"> login</button>
         </div>
     </form>
 

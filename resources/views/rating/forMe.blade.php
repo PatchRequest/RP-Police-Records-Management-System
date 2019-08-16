@@ -2,6 +2,10 @@
 
 @section('content')
 
+    @if($openRatings->isEmpty())
+        Keine Bewertungen offen :D
+    @endif
+
     @foreach($openRatings as $rating)
     <div style="padding: 10px;">
         <div class="card" style="width: 18rem;">

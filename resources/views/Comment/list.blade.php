@@ -11,9 +11,9 @@
         <input type="hidden" name="user_id" value="{{ $user->id }}">
 
         <div class="form-group">
-        <input type="text" name="title" placeholder="Titel" class="form-control"> <br>
+        <input type="text" name="title" placeholder="Titel" class="form-control" required> <br>
 
-        <textarea name="content" class="form-control"> </textarea>
+        <textarea name="content" class="form-control" required> </textarea>
         </div>
 
 
@@ -39,15 +39,15 @@
 
             @switch($comment->karma)
                 @case('negativ')
-                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card text-white bg-danger mb-3" style="max-width: 40rem;">
                 @break
 
                 @case('neutral')
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card bg-light mb-3" style="max-width: 40rem;">
                 @break
 
                  @case('positiv')
-                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card text-white bg-success mb-3" style="max-width: 40rem;">
             @endswitch
 
             <div class="card-header">
@@ -55,8 +55,11 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{ $comment->title }}</h5>
-                <p class="card-text">{{ $comment->content }}</p>
+                <p class="card-text">{!!   $comment->content !!}</p>
             </div>
+                        <div class="card-footer">
+                            Erstellt am : {{ $comment->created_at }}
+                        </div>
         </div>
 
     @endforeach

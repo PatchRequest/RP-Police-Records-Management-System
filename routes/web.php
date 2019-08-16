@@ -30,6 +30,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('user','UserController');
 
 
+    Route::group(['middleware' => ['role_or_permission:edit ranks']], function () {
+        Route::post('/role/remove','RoleController@removeRole');
+        Route::post('/role/add','RoleController@addRole');
+    });
 
     Route::post('/user/password','UserController@passwordChange');
 
@@ -45,11 +49,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/permissions','PermissionsController@index');
         Route::post('/permissions','PermissionsController@permissionChange');
     });
-
+    Route::get('logout','LoginController@logout');
 });
 
 
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('login',[ 'as' => 'login', 'uses' => 'LoginController@login']);
+    Route::post('login','LoginController@check');
+});
 
-Route::get('login',[ 'as' => 'login', 'uses' => 'LoginController@login']);
-Route::post('login','LoginController@check');
-Route::get('logout','LoginController@logout');
+
