@@ -19,7 +19,7 @@
                 <br>
                 @can('manage news')
                 <div class="btn-group">
-                    <a href="/news/{{ $news->id }}" class="btn btn-primary">  Bearbeiten</a> 
+                    <a href="/news/{{ $news->id }}" class="btn btn-primary">  Bearbeiten</a>
 
                     <form action="/news/{{ $news->id }}" method="POST">
                         @csrf
