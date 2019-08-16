@@ -17,13 +17,11 @@
 
 <div class="wrapper">
 
-    <!-- Sidebar -->
-    <nav id="sidebar">
+    <nav >
 
         @include('navbar')
     </nav>
 
-    <!-- Page Content -->
     <div id="content">
         <div class="@yield('container','container')"  >
             <div class="jumbotron mt-3">

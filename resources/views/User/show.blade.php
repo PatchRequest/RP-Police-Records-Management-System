@@ -23,16 +23,19 @@
 
 
     <div>
+<h4>
+
 
         <div>
             Forum: <a href="https://www.zero-one.cc/user/{{ $user->forum_id }}">{{ $user->forum_id }}  </a>
         </div>
-
+</h4>
+        <h4>
         <div>
             Gadget: <a href="https://gadget.zero-one.cc/profile/view/{{ $user->UID }}">{{ $user->UID }}  </a>
         </div>
 
-
+        </h4>
     </div>
     <form method="POST" action="/user/password">
         @csrf
