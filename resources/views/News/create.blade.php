@@ -1,18 +1,32 @@
 @extends('layout')
 
 @section('content')
-
     <form method="POST" action="/news">
+
+    <div class="box">
         @csrf
+        <div class="box-header"><h3>Erstelle eine Neuigkeit:</h3></div>
+        <div class="box-body pad">
 
-        <div class="form-group">
-            <label for="text"> <h3>Erstelle eine Neuigkeit:</h3></label>
-            <textarea  name="text" placeholder="Username" class="form-control" required > </textarea>
+            <div>
+
+                <textarea  name="text" placeholder="Username" class="form-control" required > </textarea>
+            </div>
+
         </div>
+        <div class="box-footer">
 
-        <div class="form-group">
             <button type="submit" class="btn btn-success">Erstellen</button>
         </div>
+
+
+
+
+
+    </div>
+
+
+
 
     </form>
 

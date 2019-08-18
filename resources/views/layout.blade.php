@@ -38,8 +38,10 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
 
     <header class="main-header">
@@ -48,7 +50,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">Z01</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Zivilpolizei</span>
+            <span class="logo-lg" ><b href="/news" >Zivilpolizei</b> </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -97,13 +99,7 @@
     @include('navbar')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Neuigkeiten
-            </h1>
 
-        </section>
 
         <!-- Main content -->
         <section class="content">
@@ -135,6 +131,13 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- Morris.js charts -->

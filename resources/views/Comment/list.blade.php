@@ -3,63 +3,76 @@
 
 
 @can('create comments')
+    <br>
         <hr>
-    <h4> Neues Kommentar erstellen:</h4>
+        <div class="box box-solid box-primary">
 
-    <form method="POST" action="/comment">
-        @csrf
-        <input type="hidden" name="user_id" value="{{ $user->id }}">
+            <div class="box-header with-border">
+                <h4 class="box-title">Neues Kommentar erstellen:</h4>
+            </div>
 
-        <div class="form-group">
-        <input type="text" name="title" placeholder="Titel" class="form-control" required> <br>
 
-        <textarea name="content" class="form-control" required> </textarea>
+            <div class="box-body">
+                <form method="POST" action="/comment">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+
+                    <div class="form-group">
+                    <input type="text" name="title" placeholder="Titel" class="form-control" required> <br>
+
+                    <textarea name="content" class="form-control" required> </textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="karma"> Karma: </label>
+                        <select name="karma" class="form-control">
+                            <option value="negativ">negativ</option>
+                            <option value="neutral" selected>neutral</option>
+                            <option value="positiv">positiv</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success"> Erstellen</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
-
-
-        <div class="form-group">
-            <label for="karma"> Karma: </label>
-            <select name="karma" class="form-control">
-                <option value="negativ">negativ</option>
-                <option value="neutral" selected>neutral</option>
-                <option value="positiv">positiv</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success"> Erstellen</button>
-        </div>
-
-    </form>
     @endcan
 
 <br>
 @can("view comments")
+    <h1> Comments:</h1>
         <hr>
     @foreach($comments as $comment)
 
             @switch($comment->karma)
                 @case('negativ')
-                <div class="card text-white bg-danger mb-3" style="max-width: 40rem;">
+                <div class="box box-solid box-danger" >
                 @break
 
                 @case('neutral')
-                <div class="card bg-light mb-3" style="max-width: 40rem;">
+                <div class="box box-solid box-info" >
                 @break
 
                  @case('positiv')
-                    <div class="card text-white bg-success mb-3" style="max-width: 40rem;">
+                    <div class="box box-solid box-success" >
             @endswitch
-
-            <div class="card-header">
-                Von {{ $comment->creator->username }}
+            <div class="box-header">
+                <div class="box-title">
+                    Von {{ $comment->creator->username }}
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">{{ $comment->title }}</h5>
+
+            <div class="box-body">
+                <h2 >{{ $comment->title }}</h2>
                 <p class="card-text">{!!   $comment->content !!}</p>
             </div>
-                        <div class="card-footer">
+                        <div class="box-footer">
                             Erstellt am : {{ $comment->created_at }}
                         </div>
+
         </div>
 
     @endforeach

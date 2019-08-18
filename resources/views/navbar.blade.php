@@ -20,6 +20,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">NAVIGATION</li>
+            <li><a href="/news"><i class="fa  fa-info-circle"></i> <span>News</span></a></li>
 
 
             <li><a href="/user/{{auth()->user()->id}}"><i class="fa fa-folder-open"></i> <span>Meine Akte</span></a></li>
@@ -27,7 +28,7 @@
 
 
 
-
+            <li class="header"></li>
             <li class="treeview">
 
                 <a href="#">
@@ -54,6 +55,9 @@
 
                 </ul>
             </li>
+
+
+
 
 
             <li class="treeview">

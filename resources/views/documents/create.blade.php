@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="box">
+<div class="box-body">
     <form method="POST" action="/document">
         @csrf
 
@@ -20,12 +22,21 @@
         </div>
 
     </form>
+</div>
+
+
+
+</div>
 
 
 
 
 
-        <table class="table">
+
+
+<div class="box">
+    <div class="box-body">
+        <table class="table table-bordered table-striped dataTable">
             <thead>
             <tr>
 
@@ -37,15 +48,20 @@
             </thead>
             <tbody>
             @foreach($documents as $document)
-            <tr>
+                <tr>
 
-                <td>{{ $document->name }}</td>
-                <td>{{ $document->url }}</td>
-                <td><form method="POSt" action="/document/{{$document->id}}"> @method('DELETE') @csrf <button class="btn btn-danger" type="submit">Löschen</button></form></td>
-            </tr>
+                    <td>{{ $document->name }}</td>
+                    <td>{{ $document->url }}</td>
+                    <td><form method="POSt" action="/document/{{$document->id}}"> @method('DELETE') @csrf <button class="btn btn-danger" type="submit">Löschen</button></form></td>
+                </tr>
             @endforeach
             </tbody>
         </table>
+    </div>
+
+</div>
+
+
 
 
 

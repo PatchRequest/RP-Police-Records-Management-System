@@ -14,53 +14,92 @@
 
 
     <div>
-        <h3> Points: {{ $points }}</h3>
-        <h4>Eingestellt von: <a href="/user/{{ $user->creator->id }}">{{ $user->creator->username }} </a></h4>
-        <h4> <a> Eingestellt am: {{ $user->created_at }}</a></h4>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+
+                    <span class="info-box-icon bg-red"><i class="fa fa-thumbs-o-up"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Punkte</span>
+                        <span class="info-box-number">{{ $points }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+
+                    <span class="info-box-icon bg-green"><i class="fa fa-tachometer"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Forum</span>
+                        <span class="info-box-number"><a href="https://www.zero-one.cc/user/{{ $user->forum_id }}">{{ $user->forum_id }}  </a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-user"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Eingestellt von</span>
+                        <span class="info-box-number"><a href="/user/{{ $user->creator->id }}">{{ $user->creator->username }} </a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+
+                    <span class="info-box-icon bg-red"><i class="fa fa-calendar-o"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Eingestellt am</span>
+                        <span class="info-box-number">{{ $user->created_at->format('d.m.Y') }}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
     </div>
 
 
+    <div class="box  box-primary">
 
+        <div class="box-header ">
 
-    <div>
-<h4>
-
-
-        <div>
-            Forum: <a href="https://www.zero-one.cc/user/{{ $user->forum_id }}">{{ $user->forum_id }}  </a>
-        </div>
-</h4>
-        <h4>
-        <div>
-            Gadget: <a href="https://gadget.zero-one.cc/profile/view/{{ $user->UID }}">{{ $user->UID }}  </a>
         </div>
 
-        </h4>
+            <div class="box-body">
+                <form method="POST" action="/user/password">
+                    @csrf
+                    <br>
+                    @if($user->id == auth()->user()->id)
+
+
+
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Neues Password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="passwordAgain" placeholder="Password wiederholen" class="form-control">
+                        </div>
+                    <button type="submit" class="btn btn-success">Ändern</button>
+
+                    @else
+                        @can('reset password')
+                        <h4>Password reset:
+                        <button type="submit" class="btn btn-danger">reset</button>
+                        </h4>
+                        @endcan
+                    @endif
+                </form>
+
+            </div>
     </div>
-    <form method="POST" action="/user/password">
-        @csrf
-        <br>
-        @if($user->id == auth()->user()->id)
-
-            <h4>Password ändern:</h4>
-
-            <div class="form-group">
-                <input type="password" name="password" placeholder="Neues Password" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="password" name="passwordAgain" placeholder="Password wiederholen" class="form-control">
-            </div>
-        <button type="submit" class="btn btn-success">Ändern</button>
-
-        @else
-            @can('reset password')
-            <h4>Password reset:
-            <button type="submit" class="btn btn-danger">reset</button>
-            </h4>
-            @endcan
-        @endif
-    </form>
-
 @can('edit ranks')
     <br>
     <!-- Button -->
@@ -118,6 +157,8 @@
     <br>
     <br>
     @endcan
+
+
 
     @can('delete users')
     <!-- Button -->

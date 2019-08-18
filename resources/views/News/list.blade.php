@@ -2,46 +2,55 @@
 
 @section('content')
 
+    <ul class="timeline">
     @foreach($newses as $news)
+        <!-- timeline time label -->
+        <li class="time-label">
 
+        </li>
+        <!-- /.timeline-label -->
 
-        <div class="card">
-            <div class="card-header">
-                News von {{ $news->creator->username }}
-            </div>
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
+        <!-- timeline item -->
+        <li>
+            <!-- timeline icon -->
+            <i class="fa fa-envelope bg-blue"></i>
+            <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> {{ $news->created_at->format('d.m.Y') }}</span>
+
+                <h3 class="timeline-header"><a href="#">Erstellt von {{ $news->creator->username }}</a> </h3>
+
+                <div class="timeline-body">
                     {!!$news->text  !!}
-                </blockquote>
-
-
-
-                <br>
-                @can('manage news')
-                <div class="btn-group">
-                    <a href="/news/{{ $news->id }}" class="btn btn-primary">  Bearbeiten</a>
-
-                    <form action="/news/{{ $news->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger"> delete</button>
-                    </form>
                 </div>
-                @endcan
+
+                <div class="timeline-footer">
+                    @can('manage news')
 
 
 
+                            <form action="/news/{{ $news->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"> delete</button>
+                                <a href="/news/{{ $news->id }}" class="btn btn-primary">  Bearbeiten</a>
+                            </form>
 
 
+                    @endcan
+                </div>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">Erstellt am {{ $news->created_at }}</small>
-            </div>
+        </li>
+        <!-- END timeline item -->
 
-        </div>
-        <br>
-    @endforeach
-
+        @endforeach
+    </ul>
     {{ $newses->links() }}
+
+
+
+
+
+
+
 
 @endsection
