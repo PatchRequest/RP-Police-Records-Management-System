@@ -70,7 +70,7 @@
                 <p class="card-text">{!!   $comment->content !!}</p>
             </div>
                         <div class="box-footer">
-                            Erstellt am : {{ $comment->created_at }}
+                            Erstellt am : {{ $comment->created_at->format('d.m.Y') }}
                         </div>
 
         </div>

@@ -72,7 +72,7 @@ class UserController extends Controller
         return view('User.show',[
             'user' => $user,
             'points' => $user->getPoints(),
-            'comments' => Comment::where('receiver_id',$user->id)->orderBy('id','desc')->paginate(5)
+            'comments' => Comment::where('receiver_id',$user->id)->orderBy('id','desc')->paginate(3)
         ]);
     }
 

@@ -30,7 +30,7 @@
                 </select>
 
                 <br>
-                <br>
+
                 <div class="form-group">
                     <label for="reason"> Grund (z.B. auf welche Streife bezogen): </label>
                     <input  type="text" name="reason" class="form-control">
