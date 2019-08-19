@@ -18,7 +18,8 @@ class LoginController extends Controller
 
 
         if($possibleUser == null){
-
+            session()->flash('message','Der User existiert nicht!');
+            return redirect('/login');
         }
 
         if (Hash::check(request('password'), $possibleUser->password)) {
@@ -28,7 +29,7 @@ class LoginController extends Controller
 
         }
 
-        session()->flash('message','Es ist ein Problem beim einloggen aufgetretten');
+        session()->flash('message','Das Passwort war falsch!');
         return redirect('/login');
     }
 

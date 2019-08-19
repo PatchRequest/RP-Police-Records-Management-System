@@ -6,7 +6,7 @@
             <div class="box">
                 <div class="box-body">
                     <div style="text-align: center;">
-                        <h2>Keine Bewertungen offen :D </h2>
+                        <h2>Keine Bewertungen offen </h2>
                     </div>
 
                 </div>

@@ -7,9 +7,11 @@
         <hr>
         <div class="box box-solid box-primary">
 
-            <div class="box-header with-border">
+            <div class="box-header">
                 <h4 class="box-title">Neues Kommentar erstellen:</h4>
             </div>
+
+
 
 
             <div class="box-body">
@@ -19,8 +21,9 @@
 
                     <div class="form-group">
                     <input type="text" name="title" placeholder="Titel" class="form-control" required> <br>
+                        <textarea name="content" class="textarea" placeholder="Inhalt des Kommentar"
+                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
 
-                    <textarea name="content" class="form-control" required> </textarea>
                     </div>
 
 

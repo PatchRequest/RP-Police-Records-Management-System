@@ -103,6 +103,7 @@
 
         <!-- Main content -->
         <section class="content">
+            @include('errors')
             @yield('content')
         </section>
         <!-- /.content -->

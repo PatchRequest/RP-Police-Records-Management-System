@@ -104,7 +104,7 @@ class UserController extends Controller
 
     public function passwordChange(){
 
-        $user = auth()->user();
+        $user = User::find(request('user_id'));
         $newpassword = "";
 
 

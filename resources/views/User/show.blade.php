@@ -75,6 +75,7 @@
 
             <div class="box-body">
                 <form method="POST" action="/user/password">
+                    <input type="hidden" value="{{ $user->id }}" name="user_id">
                     @csrf
                     <br>
                     @if($user->id == auth()->user()->id)
@@ -82,16 +83,17 @@
 
 
                         <div class="form-group">
-                            <input type="password" name="password" placeholder="Neues Password" class="form-control">
+                            <input type="password" name="password" placeholder="Neues Passwort" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="passwordAgain" placeholder="Password wiederholen" class="form-control">
+                            <input type="password" name="passwordAgain" placeholder="Passwort wiederholen" class="form-control">
                         </div>
                     <button type="submit" class="btn btn-success">Ändern</button>
 
                     @else
                         @can('reset password')
                         <h4>Password reset:
+
                         <button type="submit" class="btn btn-danger">reset</button>
                         </h4>
                         @endcan

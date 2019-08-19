@@ -36,7 +36,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
 
-
+        @include('errors')
         <form method="POST" action="/login">
             @csrf
 
@@ -86,9 +86,6 @@
 <html>
 
 <body>
-
-
-
 
 </body>
 </html>
