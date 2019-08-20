@@ -9,7 +9,7 @@
         </div>
         <div class="box-body">
 
-            <form method="POST" action="{{ url('rating') }}">
+            <form method="POST" action="/rating">
                 @csrf
                 <input type="hidden" name="ask" value="true">
 
