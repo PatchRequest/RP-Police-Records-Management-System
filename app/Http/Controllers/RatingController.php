@@ -41,7 +41,6 @@ class RatingController extends Controller
 
         $sortedUsers = $users->sortBy('sort_order');
 
-        //$user = User::orderBy('role_id')->get();
 
 
         return view('rating.create', [
@@ -120,11 +119,6 @@ class RatingController extends Controller
         return view('rating.forMe', [
             'openRatings' => $openRatings
         ]);
-    }
-
-    public function edit($id)
-    {
-
     }
 
     public function update(Rating $rating)

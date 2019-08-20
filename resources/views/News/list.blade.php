@@ -31,7 +31,7 @@
                             <form action="/news/{{ $news->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"> delete</button>
+                                <button type="submit" class="btn btn-danger"> löschen</button>
                                 <a href="/news/{{ $news->id }}" class="btn btn-primary">  Bearbeiten</a>
                             </form>
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\News;
-use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -55,13 +54,6 @@ class NewsController extends Controller
         ]);
     }
 
-
-    public function edit(News $news)
-    {
-        //
-    }
-
-
     public function update( News $news)
     {
         $validated = request()->validate([
@@ -75,7 +67,6 @@ class NewsController extends Controller
         return redirect('/news');
 
     }
-
 
     public function destroy(News $news)
     {
