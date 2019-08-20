@@ -24,10 +24,20 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/rating/ask','RatingController@ask');
     Route::get('/rating/forMe','RatingController@forMe');
-    Route::resource('/rating','RatingController');
+
+    Route::resource('/rating','RatingController')->except([
+        'edit'
+    ]);;
 
 
-    Route::resource('user','UserController');
+    Route::post('/user/password','UserController@passwordChange');
+    Route::resource('user','UserController')->except([
+        'edit', 'update'
+    ]);;
+
+    Route::resource('news','NewsController')->except([
+        'edit'
+    ]);
 
 
     Route::group(['middleware' => ['role_or_permission:edit ranks']], function () {
@@ -35,10 +45,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/role/add','RoleController@addRole');
     });
 
-    Route::post('/user/password','UserController@passwordChange');
 
 
-    Route::resource('news','NewsController');
+
+
 
     Route::get('/document/manage','DocumentsController@create');
     Route::post('/document','DocumentsController@store');
