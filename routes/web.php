@@ -25,12 +25,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rating/ask','RatingController@ask');
     Route::get('/rating/forMe','RatingController@forMe');
 
+
     Route::resource('/rating','RatingController')->except([
         'edit'
     ]);;
 
 
-    Route::post('/user/password','UserController@passwordChange');
+
     Route::resource('user','UserController')->except([
         'edit', 'update'
     ]);;
@@ -45,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/role/add','RoleController@addRole');
     });
 
+    Route::post('/user/password','UserController@passwordChange');
 
 
 
@@ -60,6 +62,25 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/permissions','PermissionsController@permissionChange');
     });
     Route::get('logout','LoginController@logout');
+
+
+
+    Route::post('/search','SearchController@publicSearch');
+
+
+    Route::post('/revive/{id}',function ($id){
+
+        if(auth()->user()->can('revive users')){
+            \App\User::withTrashed()->where('id',$id)->first()->restore();
+            session()->flash('message','User wurde wiederhergestellt');
+        }
+
+
+        return back();
+    });
+
+
+
 });
 
 

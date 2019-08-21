@@ -2,6 +2,22 @@
 
 @section('content')
 
+@can('revive users')
+    @if($user->trashed())
+
+        <div class="alert alert-danger ">
+            <h2> Achtung! Dieser User wurde gelöscht!</h2>
+            Möchtest du ihn wieder herstellen?
+
+            <form action="/revive/{{$user->id}}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger"> Wiederherstellen</button>
+            </form>
+        </div>
+
+    @endif
+@endcan
+
     <div>
         <h1>
             {{ $user->username }}
