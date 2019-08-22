@@ -17,7 +17,8 @@
 
 
                 <label for="receiver"> Empfänger: </label>
-                <select name = "receiver" class="form-control select2 select2-hidden-accessible" title="Kollegen auswählen!"data-show-subtext="true" data-live-search="true">
+                <select id="e1" name = "receiver" class="form-control " title="Kollegen auswählen!">
+
                     @foreach($users as $user)
                         @foreach($user->role as $role)
                             @if($role->sort_order > 0)

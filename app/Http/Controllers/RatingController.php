@@ -124,7 +124,11 @@ class RatingController extends Controller
     public function update(Rating $rating)
     {
 
+        request()->validate([
+            'reason' => 'required'
+        ]);
         $points_alg = 0;
+
 
         switch (request('points_alg')) {
             case 'negativ':
@@ -137,6 +141,7 @@ class RatingController extends Controller
                 $points_alg = 1;
                 break;
         }
+        $rating->reason = request('reason');
 
         $rating->points_alg = $points_alg;
         $rating->confirmed = true;

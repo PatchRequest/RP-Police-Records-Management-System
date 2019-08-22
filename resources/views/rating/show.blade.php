@@ -25,6 +25,10 @@
                         </select>
                     </div>
 
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="reason" required>
+                    </div>
+
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Abgeben</button>
