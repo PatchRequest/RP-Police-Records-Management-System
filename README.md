@@ -1,4 +1,4 @@
-# civil police managment system for an Arma 3 roleplay server<br>
+# Civil-police managment system for an Arma 3 roleplay-server<br>
 
 This is a managment system for roleplaying servers.<br>
 
