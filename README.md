@@ -7,7 +7,7 @@ DB: MySql
 Frontend: AdminLte
 
 It includes:
-    - unique useraccounts
+    - unique useraccounts <br>
         ->id
         ->username
         ->password
