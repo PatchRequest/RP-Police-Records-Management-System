@@ -1,23 +1,23 @@
-# civil police managment system for an Arma 3 roleplay server
+# civil police managment system for an Arma 3 roleplay server<br>
 
-This is a managment system for roleplaying servers.
+This is a managment system for roleplaying servers.<br>
 
-Backend: Laravel
-DB: MySql
-Frontend: AdminLte
+Backend: Laravel<br>
+DB: MySql<br>
+Frontend: AdminLte<br>
 
-It includes:
+It includes:<br>
     - unique useraccounts <br>
-        ->id
-        ->username
-        ->password
-        ->ingame_uid
-        ->forum_uid
-        ->account_creator_id
-    - Filing system for each account
-    - rating other users
-    - requesting rating from user users
-    - News with WYSIWYG editor
-    - role system
-    - costumesable permission system
-    - softdeleting and restoring of accounts
+        ->id<br>
+        ->username<br>
+        ->password<br>
+        ->ingame_uid<br>
+        ->forum_uid<br>
+        ->account_creator_id<br>
+    - Filing system for each account<br>
+    - rating other users<br>
+    - requesting rating from user users<br>
+    - News with WYSIWYG editor<br>
+    - role system<br>
+    - costumesable permission system<br>
+    - softdeleting and restoring of accounts<br>
