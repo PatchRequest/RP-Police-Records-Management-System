@@ -1,6 +1,6 @@
-# Civil-police management system for an Arma 3 roleplay-server<br>
+# Civil-police account system for an Arma 3 roleplay-server<br>
 
-This is a management system for roleplaying servers.<br>
+This is a account system for roleplaying servers.<br>
 
 Backend: Laravel<br>
 DB: MySql<br>
