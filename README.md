@@ -1,4 +1,4 @@
-# Civil-police account system for an Arma 3 roleplay-server<br>
+# RP Police Records Management System for an Arma 3 roleplay-server<br>
 
 This is a account system for roleplaying servers.<br>
 
