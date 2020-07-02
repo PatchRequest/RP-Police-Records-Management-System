@@ -48,9 +48,9 @@
         <!-- Logo -->
         <a  class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini">Z01</span>
+            <span class="logo-mini">PL</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg" ><b href="/news" >Zivilpolizei</b> </span>
+            <span class="logo-lg" ><b href="/news" >Police</b> </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
